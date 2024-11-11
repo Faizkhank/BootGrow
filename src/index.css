@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .box {
+    @apply inline-block w-[580px] h-[400px];
+  }
+}
+body {
+  min-height: 100vh;
+  background: linear-gradient(45deg, #6d3297, #9b1229);
+  background-attachment: fixed;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/bg.png");
+  background-size: 45% auto; /* Adjust to control scale */
+  background-repeat: repeat;
+  opacity: 0.2;
+  z-index: 1; /* Place behind other content */
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(45deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: rotate(50deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: rotate(45deg);
+  }
+}
+.moveRight {
+  opacity: 0; /* Start at 0 to allow fading */
+  transform: translateX(-60px); /* Optional slide-up */
+  transition: opacity var(--fade-duration, 2.2s) ease-out,
+    transform var(--fade-duration, 2.2s) ease-out;
+}
+.moveRight.visible {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.moving-gradient {
+  background: linear-gradient(to top right, #8b5cf6, #dc2626);
+  background-size: 200% 200%; /* Larger size to create the animation effect */
+  animation: gradient-shift 5s ease infinite; /* Adjust duration as needed */
+}
+.dropdown {
+  @apply absolute border-b-4 border-blue-700 p-1 group-hover:opacity-100 opacity-0 duration-200 ease-linear group-hover:translate-y-0 translate-y-4 top-28 w-40 bg-slate-100 shadow-xl rounded-md;
+}
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px); /* Optional: adds slight slide-up effect */
+  transition: opacity var(--fade-duration, 1.2s) ease-out,
+    transform var(--fade-duration, 1.2s) ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.countdown-wrapper {
+  font-family: "Roboto", monospace;
+}
