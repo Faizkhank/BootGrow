@@ -56,7 +56,6 @@ const Navbar = () => {
                   index={index}
                   className="inline-block h-full group px-1 py-1 border-transparent border-b-4 hover:border-blue-600"
                 >
-                  <div className="absolute w-16 h-32 group"></div>
                   <a className="inline-block" href={links.href}>
                     {links.name}
                     <svg
@@ -74,7 +73,7 @@ const Navbar = () => {
                       />
                     </svg>
                   </a>
-                  <ul className="dropdown ">
+                  <ul className="dropdown">
                     {links.menu.map((items, index) => (
                       <li
                         className="py-3 bg-gradient-to-tr hover:from-purple-500 hover:to-blue-500 rounded-lg hover:text-white duration-200"

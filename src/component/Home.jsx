@@ -112,6 +112,13 @@ const Home = () => {
           </div>
         </div>
       </FadeInSection>
+      <FadeInSection duration="1.5s">
+        <div className="flex justify-center">
+          <div className="text-center text-6xl text-white font-bold">
+            <p>Strategic Partnerships</p>
+          </div>
+        </div>
+      </FadeInSection>
     </div>
   );
 };

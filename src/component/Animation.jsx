@@ -56,7 +56,7 @@ function Animation() {
               transform: `translate3d(${translate.y}px, ${translate.x}px, 0px) rotate(4deg)`,
               transition: "transform 0.4s ease",
             }}
-            className="absolute xl:w-[550px] xl:h-[550px] sm:w-[300px] sm:h-[300px] border border-white bottom-1 rounded-[55px]"
+            className="absolute xl:w-[750px] xl:h-[750px] sm:w-[300px] sm:h-[300px] left-32 border border-white bottom-10 rounded-[55px]"
           ></div>
         </div>
       </div>

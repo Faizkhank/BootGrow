@@ -8,14 +8,22 @@
     @apply inline-block w-[580px] h-[400px];
   }
 }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   min-height: 100vh;
   background: linear-gradient(45deg, #6d3297, #9b1229);
   background-attachment: fixed;
-  margin: 0;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  overflow-x: hidden;
+  box-sizing: border-box; /* Ensure padding doesn't affect dimensions */
 }
 
 body::before {
@@ -26,10 +34,11 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: url("./assets/bg.png");
-  background-size: 45% auto; /* Adjust to control scale */
+  background-size: cover; /* Ensure the image covers the viewport without stretching */
   background-repeat: repeat;
   opacity: 0.2;
-  z-index: 1; /* Place behind other content */
+  z-index: -1; /* Ensure it stays behind content */
+  box-sizing: border-box; /* Same box model to prevent overflow */
 }
 
 @keyframes gradient-shift {
@@ -63,11 +72,11 @@ body::before {
   animation: gradient-shift 5s ease infinite; /* Adjust duration as needed */
 }
 .dropdown {
-  @apply absolute border-b-4 border-blue-700 p-1 group-hover:opacity-100 opacity-0 duration-200 ease-linear group-hover:translate-y-0 translate-y-4 top-28 w-40 bg-slate-100 shadow-xl rounded-md;
+  @apply absolute border-b-4 border-blue-700 p-1 group-hover:opacity-100 opacity-0 duration-200 ease-linear group-hover:translate-y-0 invisible group-hover:visible translate-y-4 top-28 w-40 bg-slate-100 shadow-xl rounded-md;
 }
 .fade-in-section {
   opacity: 0;
-  transform: translateY(20px); /* Optional: adds slight slide-up effect */
+  transform: translateY(60px); /* Optional: adds slight slide-up effect */
   transition: opacity var(--fade-duration, 1.2s) ease-out,
     transform var(--fade-duration, 1.2s) ease-out;
 }
